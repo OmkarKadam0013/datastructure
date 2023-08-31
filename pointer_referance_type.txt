@@ -1,0 +1,19 @@
+#include<stdio.h>
+void doWork(int a,int b,int *sum,int *mult,int *avg);
+int main(){
+    int sum,mult,avg;
+    int a = 3;
+    int b = 5;
+    doWork(a,b,&sum,&mult,&avg);
+    printf("Sum is %d\n Mult is %d\n  avg is %d\n",sum,mult,avg);
+    printf("%d",sum);
+  
+    return 0;
+}
+
+void doWork(int a,int b,int *sum,int *mult,int *avg){
+    *sum = a+b;
+    *mult = a*b;
+    *avg = (a+b)/2;
+    printf("sum is %d",*sum);
+}
