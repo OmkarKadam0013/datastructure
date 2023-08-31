@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int a[5];
+    int *ptr=&a[0];
+    for (int i=0;i<5;i++){
+        printf("%d index",i);
+        scanf("%d",(ptr+i));
+        
+    }
+        for(int i=0;i<5;i++){
+            printf("%d index value is %d\n",i,*(ptr+i));
+        }
+
+    return 0;
+}
