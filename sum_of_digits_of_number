@@ -1,0 +1,17 @@
+#include<stdio.h>
+int print_sum(int n);
+int main(){
+    int n = 234;
+    printf("%d",print_sum(n));
+
+    return 0;
+}
+int print_sum(int n){
+    int sum = 0,m;
+    while(n>0){
+       m = n % 10 ;
+        sum = sum + m;
+       n = n/10;
+    }
+    return sum;
+}
