@@ -1,0 +1,17 @@
+#include<stdio.h>
+int power_fn(int m,int n);
+int main(){
+    int m,n;
+    printf("Enter the value of m and n :(as n is power of m)");
+    scanf("%d %d",&m,&n);
+    printf("anser is %d",power_fn(m,n));
+
+    return 0;
+}
+int power_fn(int m,int n){
+    int p=1;
+    for(int i=1;i<=n;i++){
+         p = p * m;
+    }
+    return p;
+}
