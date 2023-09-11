@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+class Complex
+{
+   public:
+	int a =10;
+	int b=20;
+	Complex()
+	{
+	int c;
+	cout<<"Inside default constructor\n";
+	c=a*b;
+	cout<<"Multiplication:"<<c;
+	
+	}
+	Complex(int a,int b)
+	{
+	  int c;
+	  c=a*b;
+	//cout<<"\nvalue of a :"<<a;
+	cout<<"\nInside Paramaterized  constructor\n";
+	cout<<"Multiplication:"<<c;
+	}
+
+};
+
+int main()
+{
+Complex();
+Complex(3,4);
+
+return 0;
+}
