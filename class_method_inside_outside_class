@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+class PrintInfo{
+    public:
+    void add();
+    void sum(){
+        cout<<"\n";
+        int x =10;
+        int y=20;
+        cout<<x+y<<endl;
+        cout<<"\n";
+    }
+};
+void PrintInfo::add(){
+    int a=88;
+    int b=78;
+    cout<<a+b;
+}
+
+
+int main(){
+    PrintInfo obj;
+    obj.add();
+    obj.sum();
+
+    return 0;
+}
