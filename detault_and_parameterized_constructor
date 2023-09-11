@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class Complex{
+public :
+	int real;
+	int img;
+	Complex(){
+	cout<<"Enter the value of real,imaginary part for first complex number";
+	cin>>real>>img;
+	cout<<"first Compolex number is :"<<real<<"+"<<img<<"j\n";
+	cout<<"Enter the value of real,imaginary part of complex number for second complex number\n";
+	cin>>real>>img;
+	cout<<"second Compolex number is :"<<real<<"+"<<img<<"j\n";
+	}
+	
+
+
+};
+int main(){
+Complex c1;
+return 0;
+}
