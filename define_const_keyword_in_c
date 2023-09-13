@@ -1,0 +1,10 @@
+#include <stdio.h>
+//#define PI 3.14
+int main(){
+#define PI 3.14
+const int i=10;
+printf("%d\n",PI);
+printf("%d\n",i);
+printf("%c",97);
+  return 0;
+}
