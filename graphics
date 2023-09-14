@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+void calPoint(int x1,int y1,int x2,int y2);
+int main(){
+float x1,x2,y1,y2,c1,c2,m;
+int x[100];
+int y[100];
+cout<<"Enter the starting point of line(x1,y1):";
+cin>>x1>>y1;
+cout<<"Enter the ending point of line(x2,y2) :";
+cin>>x2>>y2;
+calPoint(x1,y1,x2,y2);
+for(int i=0;i<100;i++){
+cin>>x[i];
+}
+for(int i=0;i<100;i++){
+cin>>x[i];
+}
+for(int i=0;i<100;i++){
+cout<<x[i];
+}
+for(int i=0;i<100;i++){
+cout<<x[i];
+}
+
+
+
+	return 0;
+}
+void calPoint(int x1,int y1,int x2,int y2){
+float c1,c2,m;
+for(int i=x1;i<=x2;i++){
+	for(int j=y1;j<=y2;j++){
+		m = (y2-y1)/(x2-x1);
+		c1 = y1/x1;
+		c2 = y2/x2;
+		y1 = m*x1 + c1;
+		y2 = m*x2 + c2;
+			
+	}
+}
+
+
+	}
