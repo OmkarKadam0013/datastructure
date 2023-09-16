@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int count = 0;
+class alpha{
+    public:
+    //int count = 0;
+    alpha(){
+        count++;
+        cout<<"Object is created : "<<count<<endl;
+    }
+    ~alpha(){
+        cout<<"Object is destroyed :"<<count<<endl;
+            count--;
+    }
+};
+int main(){
+    cout<<"In main function"<<endl;
+    alpha A1,A2,A3,A4;
+    {
+        cout<<"Enters in first block"<<endl;
+        alpha A5;
+    }
+    {
+        cout<<"Enters in sceond block: "<<endl;
+        alpha A6;
+    }
+
+    return 0;
+}
