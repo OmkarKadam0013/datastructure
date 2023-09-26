@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+class Test{
+    public:
+    static int a;
+    static void print(){            //static function 
+        cout<<"My name is omkar kadam!!!"<<endl;
+        cout<<"Value of a is "<<a<<endl;
+    }
+};
+int Test::a=10;
+int main(){
+    Test::print();          //static function call using scope resolution operator 
+
+    return 0;
+}
