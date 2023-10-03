@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+class A{
+	public:
+	void printHello(){
+		cout<<"Hello"<<endl;
+	}
+};
+class B:virtual public A{     //virtual word is using for the virtual class
+	public:
+	void printHi(){
+		cout<<"Hi"<<endl;
+	}
+};
+class D:virtual public A{      //if we direct inherit the class it gives error if ambiguity due to multiple coppies of object created in main function!!!
+	public:
+	void hello(){
+		cout<<"Inside the class D"<<endl;
+	}
+};
+class C:public B,public D{
+	public:
+	void print(){
+		cout<<"Inside the derived class"<<endl;
+	}
+};
+int main(){
+C obj;
+obj.printHello();
+
+
+	return 0;
+	}
