@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class Hello{
+    public:
+    class Hi{
+        private:
+        int num;
+        public:
+        void getnum(int n){
+            num = n;
+            cout<<"Value of number is :"<<num<<endl;
+        }
+
+       
+    };
+};
+int main(){
+    Hello::Hi obj1;
+    obj1.getnum(100);
+
+    return 0;
+}
