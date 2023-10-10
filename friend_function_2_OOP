@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+class Temprature{
+    int celcius;
+    public:
+    Temprature(){
+        celcius =0;
+    }
+    friend int temp(Temprature);
+};
+int temp(Temprature t){
+    t.celcius = 30;
+    return t.celcius;
+}
+int main(){
+    Temprature tm;
+    cout<<temp(tm)<<endl;
+
+    return 0;
+}
