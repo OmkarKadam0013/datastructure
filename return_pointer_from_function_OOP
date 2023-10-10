@@ -12,3 +12,21 @@ int main(){
 
     return 0;
 }
+
+//returning the direct address of local variable is not good after returning it may be go out of scope so we declare static variable which neither be change after long time
+#include<iostream>
+using namespace std;
+int *Omkar(){
+    static int p;
+    cout<<"Enter the value of p:"<<endl;
+    cin>>p;
+    return &p;
+
+}
+int main(){
+    int *x;
+    //x = Omkar();
+    cout<<*Omkar();
+
+    return 0;
+}
