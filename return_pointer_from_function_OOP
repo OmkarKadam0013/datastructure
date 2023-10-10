@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int *omkar(int *a){
+    *a = *a**a;
+    return a;
+}
+int main(){
+    int *x;
+    int y=10;
+    x = omkar(&y);
+    cout<<*x;
+
+    return 0;
+}
