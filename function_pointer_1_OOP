@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+void sum(int a,int b){
+    cout<<"Sum is :"<<a+b<<endl;
+}
+void sub(int a,int b){
+    cout<<"Substraction of a and b is :"<<a-b<<endl;
+}
+int main(){
+    void (*fptr)(int , int);
+    fptr = &sum;
+    fptr(10,50);
+    fptr = &sub;
+    fptr(50,50);
+
+    return 0;
+}
