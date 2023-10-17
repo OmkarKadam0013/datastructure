@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class complex{
+	int x;
+	int y;
+	public:
+	complex(){     }
+	complex(int a,int b){
+	x = a;
+	y = b;
+			     }
+	void Display();
+	complex operator+(complex);		     
+			     
+			     
+	     };
+complex complex::operator+(complex c){
+complex temp;
+temp.x = x + c.x;
+temp.y = y + c.y;
+return temp;
+}
+void complex::Display(){
+cout<<"value of x is :"<<x<<endl;
+cout<<"Value of y is :"<<y<<endl;
+cout<<"Our complex number is :"<<x<<"+"<<y<<"j"<<endl;
+
+} 
+
+int main(){
+complex c1,c2,c3;
+c1 = complex(10,20);
+c2 = complex(100,200);
+c3 = c1+c2;
+c1.Display();
+c2.Display();
+c3.Display();
+
+	return 0;
+	  }
