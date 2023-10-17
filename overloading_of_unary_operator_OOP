@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+class Hello{
+    public:
+    int x = 10;
+    void getVal(){
+        cout<<"Value of x is :"<<x<<endl;
+    }
+    void operator -();
+};
+void Hello::operator -(){
+    x = -x;
+}
+int main(){
+    Hello obj;
+    obj.getVal();
+    -obj;
+    obj.getVal();
+
+    return 0;
+}
