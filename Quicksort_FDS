@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+int partition(int arr[],int lb,int ub){
+    int pivot = arr[lb];
+    int start = lb;
+    int end = ub;
+    while(start<end){
+      while(arr[start]<=pivot){
+        start++;
+      }
+      while(arr[end]>pivot){
+        end--;
+      }
+      if(start<end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+      }
+    }
+   
+      int temp1 = arr[lb];
+      arr[lb] = arr[end];
+      arr[end] = temp1;
+
+    return end;
+}
+void Quicksort(int arr[],int lb,int ub){
+  if(lb<ub){  
+  int loc = partition(arr,lb,ub);
+  Quicksort(arr,lb,loc-1);
+  Quicksort(arr,loc+1,ub);
+      }
+  
+
+}
+int main(){
+  int arr[] = {7,6,10,5,9,2,1,15,7};
+  Quicksort(arr,0,8);
+  for(int i=0;i<8;i++){
+    cout<<arr[i]<<endl;
+  }
+
+  return 0;
+}
