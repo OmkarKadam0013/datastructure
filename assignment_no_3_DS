@@ -1,0 +1,23 @@
+a = [[1,2,3],[4,5,6],[7,8,9]]
+b = [[1,2,3],[4,5,6],[7,8,9]]
+c = [[0,0,0],[0,0,0],[0,0,0]]
+at = [[0,0,0],[0,0,0],[0,0,0]]
+for i in range(len(a)):
+    for j in range(len(a[0])):
+        c[i][j] = a[i][j] + b[i][j]
+print("Sum is :",c)
+for i in range(len(a)):
+    for j in range(len(a[0])):
+        c[i][j] = a[i][j] - b[i][j]
+print("substraction is :",c)
+for i in range(len(a)):
+    for j in range(len(a[0])):
+        for k in range(len(a)):
+            c[i][j] = c[i][j]+a[i][k]*b[k][j]
+print("Multiplication is",c)
+
+#Transpose of the matrix:
+for i in range(len(a)):
+    for j in range(len(a[0])):
+        at[i][j] = a [j][i]
+print("Transpose of matrix a is ,",at)
