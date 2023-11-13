@@ -1,0 +1,12 @@
+import numpy as np
+arr = []
+n = int(input("Enter the size of array:"))
+for i in range(n):
+    number = int(input("Enter the element of array:"))
+    arr.append(number)
+for i in range(len(arr)):
+    for j in range(len(arr)-1):
+        if(arr[j+1]<arr[j]):
+            arr[j+1],arr[j] = arr[j],arr[j+1]
+print(arr)
+
