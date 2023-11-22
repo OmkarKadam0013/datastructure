@@ -1,0 +1,30 @@
+list = []
+total = int(input("Enter the total no of students :"))
+for i in range(total):
+    n = int(input("Enter the marks of students :"))
+    list.append(n)
+print(list)
+
+#sorting the marks using selection sort
+def selection_sort():
+    for i in range(0,len(list)-1):
+        min = i
+        for j in range(i,len(list)):
+            if(list[min]>list[j]):
+                min = j
+        if(min!=i):
+            list[min],list[i] = list[i],list[min]
+        
+    print(list)
+      
+      
+# sorting the marks using bubble sort
+def bubble_sort():
+    for i in range(len(list)-1):
+        for j in range(len(list)-1-i):
+            if(list[j]>list[j+1]):
+                list[j],list[j+1] = list[j+1],list[j]
+    print(list)
+    
+bubble_sort()
+        
