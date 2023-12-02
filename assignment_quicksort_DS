@@ -1,0 +1,33 @@
+def partition(list, lb, ub):
+    start = lb
+    end = ub
+    pivot = list[lb]
+    while (start < end):
+        while (list[start] <= pivot):
+            start = start + 1
+            if(start>ub):
+                break
+        while (list[end] > pivot):
+            end = end - 1
+        if (start <= end):
+            list[start], list[end] = list[end], list[start]
+
+    list[lb], list[end] = list[end], list[lb]
+    return end;
+
+
+def quicksort(list, lb, ub):
+    if (lb < ub):
+        loc = partition(list, lb, ub)
+        quicksort(list, lb, loc - 1)
+        quicksort(list, loc + 1, ub)
+
+list1 = []
+n = int(input("Enter the size:"))
+for i in range(n):
+    ele = float(input("Eneter the data :"))
+    list1.append(ele)
+print(list1)
+
+quicksort(list1,0,n-1)
+print(list1)
