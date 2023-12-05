@@ -1,0 +1,79 @@
+#include<iostream>
+using namespace std;
+#define N 5
+int cirqueue[N];
+int f = -1,r = -1;
+void enqueue(int x){
+    if((r+1)%N == f){
+        cout<<"Order capacity is full please wait some_time!!";
+    }
+    else if(f == -1&&r==-1){
+        f = 0;
+        r = 0;
+        cirqueue[r] = x;
+    }
+    else{
+        r = (r+1)%N;
+        cirqueue[r] = x;
+    }
+}
+void dequeue(){
+    if(f == -1 && r == -1){
+        cout<<"There is no order!!";
+    }
+    else if(f == r){
+        f = -1;
+        r = -1;
+    }
+    else{
+        f = (f+1)%N;
+    }
+}
+void display(){
+    if(f == -1 && r == -1){
+        cout<<"There is no order!!"<<endl;
+    }
+    else{
+    int i = f;
+    cout<<"ORDER LIST IS :\n";
+    cout<<endl;
+    while(i!=r){
+        cout<<cirqueue[i]<<"\t";
+        i = (i+1)%N;
+    }
+    cout<<cirqueue[r]<<"\n";
+    cout<<endl<<endl;
+    }
+    
+}
+int main(){
+    int pizza_id = 1;
+    while(1){
+         int ch;
+    cout<<"* * * PIZZA PARLOUR * * *";
+    cout<<"\n";
+    cout<<"---------MENU -------------";
+    cout<<endl;
+    cout<<"Enter 1 for add pizza \nenter 2 for served the pizza  \nEnter 3 if you want to check order list :\n";
+    cout<<"Enter your choice :";
+    cin>>ch;
+    switch(ch){
+        case 1:
+        cout<<"Enter the pizza id :";
+        cin>>pizza_id;
+        enqueue(pizza_id);
+        break;
+        case 2:
+        dequeue();
+        break;
+        case 3:
+        display();
+        break;
+        default :
+        cout<<"Invalid choice please re-enter it : ";
+    }
+        }
+
+
+    return 0;
+}
