@@ -1,0 +1,156 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct node{
+    string name;
+    int prn;
+    node*next;
+
+}*head;
+void creat_head(){
+    node*newnode,*temp;
+    newnode = new node;
+    cout<<"Enter the name(Presidant) :";
+    cin>>newnode->name;
+    cout<<"enter the prn :";
+    cin>>newnode->prn;
+    newnode->next = NULL;
+    if(head == NULL){
+        head = newnode;
+    }
+    else{
+        cout<<"Node is created!!"<<endl;
+
+    }
+}
+void end(){
+    node*newnode,*temp;
+    newnode = new node;
+    cout<<"Enter the name(secratory) :";
+    cin>>newnode->name;
+    cout<<"enter the prn :";
+    cin>>newnode->prn;
+    newnode->next = NULL;
+    temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = newnode;
+}
+void inset_member(){
+    int pos,i = 1;
+    cout<<"Enter the position where insert:";
+    cin>>pos;
+    node*newnode,*temp;
+    newnode = new node;
+    cout<<"Enter the name of member :";
+    cin>>newnode->name;
+    cout<<"enter the prn :";
+    cin>>newnode->prn;
+    newnode->next = NULL;
+    temp = head;
+    while(i<pos){
+        temp = temp->next;
+        i++;
+    }
+    if(head == NULL){
+        creat_head();
+        temp = head;
+    }
+    else{
+        newnode->next = temp->next;
+        temp->next = newnode;
+        temp = newnode;
+    }
+
+}
+void display(){
+    node*temp;
+    temp = head;
+    while(temp!=NULL){
+        cout<<temp->name<<"\t";
+        cout<<temp->prn<<"\t";
+        temp = temp->next;
+    }
+}
+void total_member(){
+    node*temp;
+    int count = 0;
+    temp = head;
+    while(temp != NULL){
+        count++;
+        temp = temp->next;
+    }
+    cout<<"Total no of members are (including president and secratory )"<<count<<endl;
+}
+void del_precident(){
+    node *temp;
+    temp = head;
+    head = head->next;
+    delete temp;
+}
+void del_secratory(){
+    node *temp,*prev;
+    temp = head;
+    prev = head;
+    while(temp->next!=NULL){
+        prev = temp;
+        temp = temp->next;
+    }
+    prev->next = NULL;
+    delete temp;
+
+}
+void del_mem(){
+    node*temp,*prev;
+    int pos,i;
+    cout<<"Enter the position where node is delete:";
+    cin>>pos;
+    temp = head;
+    prev = head;
+    while(i<=pos){
+        prev = temp;
+        temp = temp->next;
+    }
+    prev->next = temp->next;
+    delete temp;
+}
+
+int main(){
+    head = NULL;
+    int ch;
+    while(1){
+        cout<<"Enter your choice:"<<endl;
+        cout<<"Enter 1 for creat head \nEnter 2 for end: \n enter 3 for inset node \n enter 4 for display \n enter 5 for delete precident \n enter 6 for delete secretory \n enetr 7 for delete member :"<<endl;
+        cin>>ch;
+        switch (ch)
+        {
+        case 1:
+        creat_head();
+        break;
+        case 2 :
+        end();
+        break;
+        case 3:
+        inset_member();
+        break;
+        case 4:
+        display(); 
+        break;
+        case 5:
+        del_precident();
+        break;
+        case 6:
+        del_secratory();
+        break;
+        case 7:
+        del_mem();
+        break;
+        default:
+        cout<<"Invalide choice!!"<<endl;
+        break;
+        }
+    }
+
+    return 0;
+}
