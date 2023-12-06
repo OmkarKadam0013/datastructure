@@ -1,0 +1,83 @@
+#include<iostream>
+using namespace std;
+#define N 5
+int queue[N];
+int r = -1;
+int f = -1;
+void add_job(int x){
+    if(r == N-1){
+        cout<<"Can't add job it's full!!";
+    }
+    else if(f == -1 && r == -1){
+        f = 0;
+        r = 0;
+        queue[r] = x;
+    }
+    else{
+        r++;
+        queue[r] = x;
+    }
+}
+void delete_job(){
+    if(f == -1 && r == -1){
+        cout<<"Queue is an empty!!";
+    }
+    else if(f == r){
+        f = -1;
+        r = -1;
+    }
+    else{
+        f++;
+    }
+}
+void display(){
+    int i = f;
+    if(f == -1 && r == -1){
+        cout<<"Queue is empty can't print it!!";
+    }
+    else{
+        while(i!=r){
+            cout<<queue[i]<<"\t";
+            i++;
+        }
+        cout<<queue[r]<<endl;
+    }
+}
+int main(){
+    int jc;
+    int ch;
+    while(1){
+        cout<<"**** MENU ****"<<endl;
+        cout<<"Enter 1 for add job"<<endl;
+        cout<<"Enter 2 for delete job"<<endl;
+        cout<<"Enter 3 for display job list "<<endl;
+        cout<<"Enter 4 for exit from program :"<<endl;
+        cout<<"Enter your choice :";
+        cin>>ch;
+        cout<<endl;
+        switch(ch){
+            case 1:
+                cout<<"Enter job code:";
+                cin>>jc;
+                add_job(jc);
+            break;
+            case 2:
+                delete_job();
+            break;
+            case 3:
+                display();
+            break;
+            case 4:
+                exit(0);
+            break;
+            default:
+                cout<<"You entered wrong choice please select again:";
+            break;
+
+            }
+
+        }
+
+        
+    return 0;
+}
