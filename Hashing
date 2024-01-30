@@ -1,0 +1,64 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct node{
+    int tel;
+    node*next;
+
+}*head;
+void creat_head(){
+  int choice = 1;
+  while(choice){
+    node*newnode,*temp;
+    newnode = new node;
+    cout<<"enter the tel :";
+    cin>>newnode->tel;
+    newnode->next = NULL;
+    if(head == NULL){
+        head = newnode;
+        temp = head;
+    }
+    else{
+        temp->next = newnode;
+        temp = newnode;
+    }
+    cout<<"Do you want to continue(0/1) :";
+    cin>>choice;
+    }
+}
+void display(){
+  node*temp;
+  temp = head;
+  while(temp != NULL){
+    cout<<temp->tel<<endl;
+    temp = temp->next;
+  }
+}
+void creat_hash(){
+  node*temp;
+  temp = head;
+  int pos,m,k,n;
+  cout<<"Enter the value of m :";
+  cin>>m;
+  cout<<"Enter how many numberes do you  wnat to add? :";
+  cin>>n;
+  for(int j = 0;j<n;j++){
+  cout<<"Enter the key : ";
+  cin>>k;
+  int pos = k % m;
+  int i = 0;
+  while(i < pos ){
+    temp = head;
+    temp = temp->next;
+    i++;
+  }
+  temp->tel = k;
+  }
+}
+int main(){
+  creat_head();
+  creat_hash();
+  display();
+
+  return 0;
+}
