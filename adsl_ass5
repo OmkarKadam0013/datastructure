@@ -10,21 +10,12 @@ void create(){
     stack<node*>s2;
     char exp[] = "+--a*bc/def";
     for(int i = strlen(exp)-1; i>=0;i--){
-        if(exp[i] != '/' || exp[i] != '*' || exp[i] != '-' || exp[i] != '+'){
-            if(root == NULL){
+        if(exp[i] != '/' && exp[i] != '*' && exp[i] != '-' && exp[i] != '+'){
             node*newnode = new node;
-            root = newnode;
             newnode->data = exp[i];
             newnode->left = NULL;
             newnode->right = NULL;
             s2.push(newnode);
-            }
-            else{
-            node*newnode = new node;
-            newnode->data = exp[i];
-            newnode->left = NULL;
-            newnode->right = NULL;
-            s2.push(newnode);}
         }
         
         if(exp[i] == '/' || exp[i] == '*' || exp[i] == '-' || exp[i] == '+'){
@@ -34,10 +25,13 @@ void create(){
             s2.pop();
             newnode->right = s2.top();
             s2.pop();
+            s2.push(newnode);
             
         }
     
     }
+    root = s2.top();
+    s2.pop();
 }
 int display(node*root){
     if(root == NULL){
@@ -48,11 +42,20 @@ int display(node*root){
     display(root->right);
     return 0;
 }
+void deletetree(node*root){
+    if(root == NULL){
+        return;
+    }
+    deletetree(root->left);
+    node*temp = root;
+    delete root;
+    deletetree(temp->right);    
+}
 int main(){
     root = NULL;
     create();
     display(root);
-
+    deletetree(root);
 
     return 0;
 }
