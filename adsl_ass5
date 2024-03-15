@@ -1,0 +1,58 @@
+#include<iostream>
+#include<stack>
+#include<string.h>
+using namespace std;
+struct node{
+    char data;
+    node*left,*right;
+}*root;
+void create(){
+    stack<node*>s2;
+    char exp[] = "+--a*bc/def";
+    for(int i = strlen(exp)-1; i>=0;i--){
+        if(exp[i] != '/' || exp[i] != '*' || exp[i] != '-' || exp[i] != '+'){
+            if(root == NULL){
+            node*newnode = new node;
+            root = newnode;
+            newnode->data = exp[i];
+            newnode->left = NULL;
+            newnode->right = NULL;
+            s2.push(newnode);
+            }
+            else{
+            node*newnode = new node;
+            newnode->data = exp[i];
+            newnode->left = NULL;
+            newnode->right = NULL;
+            s2.push(newnode);}
+        }
+        
+        if(exp[i] == '/' || exp[i] == '*' || exp[i] == '-' || exp[i] == '+'){
+            node*newnode = new node;
+            newnode->data = exp[i];
+            newnode->left = s2.top();
+            s2.pop();
+            newnode->right = s2.top();
+            s2.pop();
+            
+        }
+    
+    }
+}
+int display(node*root){
+    if(root == NULL){
+        return 0;
+    }
+    display(root->left);
+    cout<<root->data<<"\t";
+    display(root->right);
+    return 0;
+}
+int main(){
+    root = NULL;
+    create();
+    display(root);
+
+
+    return 0;
+}
